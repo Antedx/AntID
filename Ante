@@ -68,7 +68,19 @@ end)()
 coroutine.wrap(function()
 	while task.wait(TimeBankRefresh) do
 		local suc,rea = pcall(function()
-			if savestate.usercount == Number.Accounts then
+
+			if not table.find(savestate.Users, game.Players.LocalPlayer.Name) then
+				table.insert(savestate.Users, game.Players.LocalPlayer.Name)
+				savestate.usercount = savestate.usercount + 1
+				savestate.Count = savestate.Count + Time.Value
+				writefile("Counter.Ant", httpService:JSONEncode(savestate))
+				savestate = httpService:JSONDecode(readfile("Counter.Ant"))
+			else
+				print("already in")
+
+			end
+			task.wait(0.2)
+			if savestate.usercount >= Number.Accounts then
 				local Data = {
 					['username'] = "RiceBot",
 					["content"] = name.."'s Total Time Amount",
@@ -100,20 +112,11 @@ coroutine.wrap(function()
 				writefile("Counter.Ant", httpService:JSONEncode(Save))
 				savestate = httpService:JSONDecode(readfile("Counter.Ant"))
 			end
-			if not table.find(savestate.Users, game.Players.LocalPlayer.Name) then
-				table.insert(savestate.Users, game.Players.LocalPlayer.Name)
-				savestate.usercount = savestate.usercount + 1
-				savestate.Count = savestate.Count + Time.Value
-				writefile("Counter.Ant", httpService:JSONEncode(savestate))
-				savestate = httpService:JSONDecode(readfile("Counter.Ant"))
-			else
-				print("already in")
-
-			end
 
 		end)
 		if suc == false then 
-			print(rea)
+			rconsolewarn(rea.."\n")
+			
 		else
 
 		end
@@ -127,11 +130,6 @@ end)()
 
 
 print("Passed ehfehfe")
-
-
-
-
-
 
 
 
@@ -198,23 +196,22 @@ local response = syn.request(
 game.Players.PlayerAdded:Connect(function(Player)
 	for i, v in pairs(watchout)do
 		if Player.Name == v then
-			game.Players.LocalPlayer:Kick("higher up joined")
-			rconsolewarn("higher up joined - roblox afk")
-			LOG("HIGHER UP JOINED: "..Player.Name)
+			game.Players.LocalPlayer:Kick()
 			Number.Accounts = Number.Accounts - 1
 			writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
-			wait(0.5)
+			messagebox("Click continue to send details to discord","Something occurred,",790)
+			LOG("HIGHER UP JOINED: "..Player.Name)
+		
 			game:Shutdown()
 		end
 	end
 	for i,v in pairs(nosyasses)do
 		if Player.Name == v then
-			game.Players.LocalPlayer:Kick("nosy ass")
-			rconsolewarn("Nosey ass - roblox afk")
-			LOG("NOSEY ASS JOINED: "..Player.Name)
+			game.Players.LocalPlayer:Kick()
 			Number.Accounts = Number.Accounts - 1
 			writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
-			wait(0.5)
+			messagebox("Click continue to send details to discord","Something occurred,",790)
+			LOG("NOSEY ASS JOINED: "..Player.Name)
 			game:Shutdown()
 		end
 	end
@@ -222,12 +219,10 @@ end)
 for i,v in pairs(game.Players:GetChildren())do
 	for O, P in pairs(watchout)do
 		if P == v.Name then
-			game.Players.LocalPlayer:Kick("higher up joined")
-			rconsolewarn("higher up joined - roblox afk")
-			LOG("HIGHER UP JOINED: "..v.Name)
+			game.Players.LocalPlayer:Kick()
 			Number.Accounts = Number.Accounts - 1
 			writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
-			wait(0.5)
+			messagebox("Check Discord Server for details","Something occurred,",790)
 			game:Shutdown()
 		end
 	end
@@ -372,20 +367,20 @@ game.Workspace.ChildAdded:connect(function(v)
 
 end)
 game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
-	rconsolewarn("You died - roblox afk")
 	game.Players.LocalPlayer:Kick("you died")
 	Number.Accounts = Number.Accounts - 1
 	writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
+	messagebox("Check Discord Server for details","Something occurred,",790)
 	LOG("Player had died")
-	wait(0.5)
 	game:Shutdown()
 
 end)
 game.NetworkClient.ChildRemoved:Connect(function()
 	Number.Accounts = Number.Accounts - 1
 	writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
-	game:Shutdown()
+	messagebox("Check Discord Server for details","Something occurred,",790)
 	LOG("either player disconnected or was kicked")
+	game:Shutdown()
 end)
 local afk = game:GetService("VirtualUser")
 game:GetService("Players").LocalPlayer.Idled:connect(function()
@@ -464,6 +459,8 @@ for d,c in pairs(game.Players:GetChildren()) do
 			end
 		end
 		wordsaid = {}
+		game.Players.LocalPlayer:Kick()
+		messagebox("Something occurred, ","Check Discord Server for details",790)
 		game:Shutdown()
 
 	end)
@@ -483,7 +480,7 @@ game.Players.PlayerAdded:Connect(function(Plr)
 			end
 		end
 		if flag == true then
-			if mag < 20 then
+			if mag < 25 then
 				print(wordsaid)
 				local FlagWords = table.concat(wordsaid,'\n')
 				local Data = {
@@ -534,7 +531,13 @@ game.Players.PlayerAdded:Connect(function(Plr)
 			end
 		end
 		wordsaid = {}
+		game.Players.LocalPlayer:Kick()
+		messagebox("Something occurred, ","Check Discord Server for details",790)
 		game:Shutdown()
+
+
+
+
 	end)
 
 end)
