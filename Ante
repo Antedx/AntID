@@ -464,6 +464,7 @@ for d,c in pairs(game.Players:GetChildren()) do
 			end
 		end
 		wordsaid = {}
+		game:Shutdown()
 
 	end)
 end
@@ -533,6 +534,7 @@ game.Players.PlayerAdded:Connect(function(Plr)
 			end
 		end
 		wordsaid = {}
+		game:Shutdown()
 	end)
 
 end)
