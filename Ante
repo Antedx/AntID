@@ -181,7 +181,7 @@ print("Passed ehfehfe")
 
 
 
-local e
+local e = "nil"
 
 local players = game:GetService("Players"):GetPlayers()
 local button = game.CoreGui.RobloxGui:WaitForChild("PromptDialog")
