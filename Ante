@@ -94,7 +94,7 @@ if game.Workspace:WaitForChild("doneloading") then
 			end
 		end)()
 		coroutine.wrap(function()
-			while task.wait(TimeBankRefresh / 2) do
+			while task.wait(TimeBankRefresh) do
 				local suc,rea = pcall(function()
 					if table.find(savestate.Users, game.Players.LocalPlayer.Name) then
 						if savestate.usercount >= Number.Accounts then
