@@ -52,7 +52,7 @@ end
 
 if game.Workspace:WaitForChild("doneloading") then
 	print("loaded")
-	task.wait(0.25)
+	task.wait(0.225)
 
 
 	
@@ -198,7 +198,17 @@ if game.Workspace:WaitForChild("doneloading") then
 		print("Passed ehfehfe")
 
 
-
+		game.Players.LocalPlayer.PlayerGui.ChildAdded:Connect(function(Gui)
+			LOG(Gui.." was added to playergui, assumed shutdown")
+			game.Players.LocalPlayer:Kick()
+			wait(1)
+			Number.Accounts = Number.Accounts - 1
+			writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
+			syn.queue_on_teleport([[
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
+    	]])
+			game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
+		end)
 
 
 
