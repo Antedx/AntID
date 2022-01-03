@@ -194,7 +194,6 @@ if game.Workspace:WaitForChild("doneloading") then
 					if State.usercount >= Number.Accounts then
 						local Data = {['username'] = "RiceBot",["content"] = name.."'s Total Time Amount",["embeds"] = {{['title'] = State.Count,['color'] = 12989122}}}
 						local response = syn.request({Url = "https://discordapp.com/api/webhooks/926356490028220417/fJoDufLd_ECj3IE5J5dJGDoF9T92sM4U_b14hBFZM4LVlf3YESvR-vXcoBzECRa29oqu", Method = "POST",Headers = {["Content-Type"] = "application/json"},Body = game:GetService'HttpService':JSONEncode(Data)})
-						print(State.Count)
 						local Save = {["Count"] = 0,["usercount"] = 0,["Users"] = {}}
 						writefile("Counter.Ant", httpService:JSONEncode(Save))
 						State = httpService:JSONDecode(readfile("Counter.Ant"))
