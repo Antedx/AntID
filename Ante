@@ -54,17 +54,18 @@ if game.Workspace:WaitForChild("doneloading") then
 	game.Workspace.MainArena.Ice.TouchInterest:Destroy()
 	task.wait(0.125)
 	local function TP(position)
-		position.Position = game.Players.LocalPlayer.Character.Torso.Position
+		position = game.Players.LocalPlayer.Character.Torso.Position
 	end
 	local function Heal()
+		task.wait(0.5)
 		for i,v in next, game.Workspace:GetChildren()do
 			if v then
 				local Boxes = string.gsub(v.Name,"%d+","")
 				if string.find(Boxes,"Healing") then
-					TP(v)
+					TP(v.Position)
 				end
 			else
-				print("error")
+				rconsolewarn("wrror")
 			end
 		end
 	end
