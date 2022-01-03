@@ -217,8 +217,13 @@ if game.Workspace:WaitForChild("doneloading") then
 			v:Destroy()
 		end
 	end
+	local user = game:GetService("VirtualUser")
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
 	local afk = game:GetService("VirtualUser")
 	game:GetService("Players").LocalPlayer.Idled:connect(function()
+		user:CaptureController()
+		user:ClickButton1(Vector2.new(0,0))
 		afk:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
 		wait(1)
 		afk:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
