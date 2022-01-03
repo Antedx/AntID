@@ -15,7 +15,7 @@ end
 
 if game.Workspace:WaitForChild("doneloading") then
 print("loaded")
-task.wait(2.5)
+task.wait(0.5)
 local name = "Antedx" -- ur name to separate urs from others
 local TimeBankRefresh = 60
 local wordlist =[[
