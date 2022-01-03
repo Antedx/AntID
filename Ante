@@ -1,7 +1,13 @@
 task.wait(2)
-if not game:IsLoaded() then
-	game.IsLoaded:Wait()
-end
+
+local loading = game.CoreGui:WaitForChild("RobloxLoadingGui")
+
+loading.ChildRemoved:Connect(function()
+	local done = Instance.new("Model")
+	done.Name = "doneloading"
+	done.Parent = game.Workspace
+end)
+game.Workspace:WaitForChild("doneloading")
 task.wait(2.5)
 game.Players.LocalPlayer:WaitForChild("PlayerGui")
 local name = "Antedx" -- ur name to separate urs from others
@@ -39,7 +45,10 @@ local nosyasses = {
 
 }
 
-
+if not game.Workspace:FindFirstChild("LOLAHA") then
+	local boo = Instance.new("Model")
+	boo.Name = "LOLAHA"
+	boo.Parent = game.Workspace
 local httpService = game:GetService("HttpService")
 if not isfile("NumberAcc.Ant") then
 	local Save = {
@@ -621,4 +630,5 @@ game.Players.PlayerAdded:Connect(function(Plr)
 	end)
 
 end)
-game.Workspace.MainArena.Ice.TouchInterest:Destroy()
+	game.Workspace.MainArena.Ice.TouchInterest:Destroy()
+	end
