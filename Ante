@@ -46,7 +46,7 @@ if game.Workspace:WaitForChild("doneloading") then
 			Time = game.Players.LocalPlayer.leaderstats.Time
 		end
 	end)()
-	local Inject = {['username'] = "WatchBot",["content"] = "Yay! "..game.Players.LocalPlayer.Name.." has loaded script (V 2.1.0)",}
+	local Inject = {['username'] = "WatchBot",["content"] = "Yay! "..game.Players.LocalPlayer.Name.." has loaded script (V 2.1.7)",}
 	local response = syn.request({Url = "https://discordapp.com/api/webhooks/926353493118296085/VPdJcpFNuO4sKSNV6SIk62NmUv8rErLj1v4tkdesNt50J1aDyifABS7F8ZiqblRrBdh2", Method = "POST",Headers = {["Content-Type"] = "application/json"},Body = game:GetService'HttpService':JSONEncode(Inject)})
 	---------------functions----------------------------------------------
 
@@ -88,8 +88,7 @@ if game.Workspace:WaitForChild("doneloading") then
 		LOG(Gui.." was added to playergui, assumed shutdown")
 		game.Players.LocalPlayer:Kick()
 		wait(1)
-		Number.Accounts = Number.Accounts - 1
-		writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
+		
 		syn.queue_on_teleport([[
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
     	]])
@@ -124,8 +123,7 @@ if game.Workspace:WaitForChild("doneloading") then
 				game.Players.LocalPlayer:Kick()
 				LOG("players were in server. Player blocked: "..e)
 				task.wait(1.5)
-				Number.Accounts = Number.Accounts - 1
-				writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
+			
 				syn.queue_on_teleport([[loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()]])
 				game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
 			end
@@ -147,8 +145,6 @@ if game.Workspace:WaitForChild("doneloading") then
 		if re ~= true then
 			game.Players.LocalPlayer:Kick()
 			LOG("players were in server. Player blocked: "..e)
-			Number.Accounts = Number.Accounts - 1
-			writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
 			task.wait(1.5)
 			syn.queue_on_teleport([[loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()]])
 			game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
@@ -169,8 +165,7 @@ if game.Workspace:WaitForChild("doneloading") then
 		if re ~= true then
 			game.Players.LocalPlayer:Kick()
 			LOG("players were in server. Player blocked: "..e)
-			Number.Accounts = Number.Accounts - 1
-			writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
+		
 			task.wait(1.5)
 			syn.queue_on_teleport([[loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()]])
 			game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
