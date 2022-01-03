@@ -47,20 +47,24 @@ if game.Workspace:WaitForChild("doneloading") then
 		end
 	end)()
 	local Inject = {['username'] = "WatchBot",["content"] = "Yay! "..game.Players.LocalPlayer.Name.." has loaded script (V 2.1.0)",}
-	local response = syn.request({Url = "https://discordapp.com/api/webhooks/926356490028220417/fJoDufLd_ECj3IE5J5dJGDoF9T92sM4U_b14hBFZM4LVlf3YESvR-vXcoBzECRa29oqu", Method = "POST",Headers = {["Content-Type"] = "application/json"},Body = game:GetService'HttpService':JSONEncode(Inject)})
+	local response = syn.request({Url = "https://discordapp.com/api/webhooks/926353493118296085/VPdJcpFNuO4sKSNV6SIk62NmUv8rErLj1v4tkdesNt50J1aDyifABS7F8ZiqblRrBdh2", Method = "POST",Headers = {["Content-Type"] = "application/json"},Body = game:GetService'HttpService':JSONEncode(Inject)})
 	---------------functions----------------------------------------------
 
 	print("loaded")
 	game.Workspace.MainArena.Ice.TouchInterest:Destroy()
-	task.wait(0.2)
+	task.wait(0.125)
 	local function TP(position)
 		position.Position = game.Players.LocalPlayer.Character.Torso.Position
 	end
 	local function Heal()
 		for i,v in next, game.Workspace:GetChildren()do
-			local Boxes = string.gsub(v.Name,"%d+","")
-			if string.find(Boxes,"Healing") then
-				TP(v)
+			if v then
+				local Boxes = string.gsub(v.Name,"%d+","")
+				if string.find(Boxes,"Healing") then
+					TP(v)
+				end
+			else
+				print("error")
 			end
 		end
 	end
@@ -239,5 +243,5 @@ if game.Workspace:WaitForChild("doneloading") then
 	game.Players.PlayerAdded:Connect(function()
 		coroutine.wrap(ALERT)()
 	end)
-	
+
 end
