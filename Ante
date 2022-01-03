@@ -8,8 +8,8 @@ loading.ChildRemoved:Connect(function()
 	done.Parent = game.Workspace
 end)
 game.Workspace:WaitForChild("doneloading")
+print("loaded")
 task.wait(2.5)
-game.Players.LocalPlayer:WaitForChild("PlayerGui")
 local name = "Antedx" -- ur name to separate urs from others
 local TimeBankRefresh = 60
 local wordlist =[[
