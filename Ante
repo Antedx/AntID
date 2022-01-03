@@ -1,3 +1,7 @@
+if not game:IsLoaded() then
+	game.IsLoaded:Wait()
+end
+
 local name = "Antedx" -- ur name to separate urs from others
 local TimeBankRefresh = 60
 local wordlist =[[
@@ -237,9 +241,9 @@ button.ContainerFrame.DescendantAdded:Connect(function(but)
 			LOG("players were in server")
 			wait(0.5)
 			syn.queue_on_teleport([[
-wait(5)
+wait(8)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
-Log2()
+LOG2()
     ]])
 			game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
 
@@ -265,9 +269,9 @@ if #game.Players:GetChildren() ~= 1 then
 		LOG("players were in server")
 		wait(0.5)
 		syn.queue_on_teleport([[
-wait(5)
+wait(8)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
-Log2()
+LOG2()
     ]])
 		game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
 
@@ -292,9 +296,9 @@ game.Players.PlayerAdded:Connect(function()
 		LOG("players were in server")
 		wait(0.5)
 		syn.queue_on_teleport([[
-wait(5)
+wait(8)
 loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
-Log2()
+LOG2()
     ]])
 		game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
 
