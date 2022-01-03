@@ -181,7 +181,7 @@ print("Passed ehfehfe")
 
 
 
-
+local e
 
 local players = game:GetService("Players"):GetPlayers()
 local button = game.CoreGui.RobloxGui:WaitForChild("PromptDialog")
@@ -209,9 +209,11 @@ button.ContainerFrame.DescendantAdded:Connect(function(but)
 			but:Destroy()
 			wait()
 			game.Players.LocalPlayer:Kick()
-			LOG("players were in server")
-			wait(1)
-
+			LOG("players were in server. Player blocked: "..e)
+			task.wait(1.5)
+			syn.queue_on_teleport([[
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
+    	]])
 			game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
 
 		end
@@ -219,6 +221,7 @@ button.ContainerFrame.DescendantAdded:Connect(function(but)
 end)
 
 local block = {}
+
 if #game.Players:GetChildren() ~= 1 then
 	for _,v in pairs(game.Players:GetPlayers()) do
 		if v.Name ~= game.Players.LocalPlayer.Name then
@@ -227,14 +230,17 @@ if #game.Players:GetChildren() ~= 1 then
 	end
 	if block[1] ~= nil then
 		local v = math.random(1,#block)
-		local e = block[v]
+		 e = block[v]
 		game.StarterGui:SetCore("PromptBlockPlayer", game.Players[e])
 	end
 	wait(0.125)
 	if re ~= true then
 		game.Players.LocalPlayer:Kick()
-		LOG("players were in server")
-		wait(1)
+		LOG("players were in server. Player blocked: "..e)
+		task.wait(1.5)
+		syn.queue_on_teleport([[
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
+    	]])
 		game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
 
 	end
@@ -255,8 +261,11 @@ game.Players.PlayerAdded:Connect(function()
 	wait(0.125)
 	if re ~= true then
 		game.Players.LocalPlayer:Kick()
-		LOG("players were in server")
-		wait(1)
+		LOG("players were in server. Player blocked: "..e)
+		task.wait(1.5)
+		syn.queue_on_teleport([[
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
+    	]])
 		game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
 
 	end
