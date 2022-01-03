@@ -181,7 +181,7 @@ print("Passed ehfehfe")
 
 
 
-local e = "nil"
+local e = "?"
 
 local players = game:GetService("Players"):GetPlayers()
 local button = game.CoreGui.RobloxGui:WaitForChild("PromptDialog")
@@ -236,7 +236,7 @@ if #game.Players:GetChildren() ~= 1 then
 	wait(0.125)
 	if re ~= true then
 		game.Players.LocalPlayer:Kick()
-		LOG("players were in server. Player blocked: "..e)
+		LOG("players were in server. Player blocked: ?")
 		task.wait(1.5)
 		syn.queue_on_teleport([[
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
@@ -261,7 +261,7 @@ game.Players.PlayerAdded:Connect(function()
 	wait(0.125)
 	if re ~= true then
 		game.Players.LocalPlayer:Kick()
-		LOG("players were in server. Player blocked: "..e)
+		LOG("players were in server. Player blocked: ?")
 		task.wait(1.5)
 		syn.queue_on_teleport([[
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
