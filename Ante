@@ -243,10 +243,7 @@ button.ContainerFrame.DescendantAdded:Connect(function(but)
 			game.Players.LocalPlayer:Kick()
 			LOG("players were in server")
 			wait(1)
-			syn.queue_on_teleport([[
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
-LOG2()
-    ]])
+
 			game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
 
 		end
@@ -270,10 +267,6 @@ if #game.Players:GetChildren() ~= 1 then
 		game.Players.LocalPlayer:Kick()
 		LOG("players were in server")
 		wait(1)
-		syn.queue_on_teleport([[
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
-LOG2()
-    ]])
 		game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
 
 	end
@@ -296,10 +289,6 @@ game.Players.PlayerAdded:Connect(function()
 		game.Players.LocalPlayer:Kick()
 		LOG("players were in server")
 		wait(1)
-		syn.queue_on_teleport([[
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
-LOG2()
-    ]])
 		game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
 
 	end
@@ -486,6 +475,10 @@ game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
 
 end)
 game.NetworkClient.ChildRemoved:Connect(function()
+	syn.queue_on_teleport([[
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
+LOG2()
+    ]])
 	if Warned ~= true then
 		LOG("either player disconnected or was kicked")
 	end
