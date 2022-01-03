@@ -85,7 +85,7 @@ if game.Workspace:WaitForChild("doneloading") then
 
 	-------------------ServerCheck----------------------------------------
 	game.Players.LocalPlayer.PlayerGui.ChildAdded:Connect(function(Gui)
-		LOG(Gui.." was added to playergui, assumed shutdown")
+		LOG(Gui.Name.." was added to playergui, assumed shutdown")
 		game.Players.LocalPlayer:Kick()
 		wait(1)
 
