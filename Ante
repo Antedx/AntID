@@ -231,7 +231,7 @@ if game.Workspace:WaitForChild("doneloading") then
 				if string.find(Boxes,"Healing") then
 					TP(v.Position)
 
-					task.wait(0.125)
+					task.wait(0.25)
 				end
 				
 			end
