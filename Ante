@@ -242,7 +242,7 @@ button.ContainerFrame.DescendantAdded:Connect(function(but)
 			wait()
 			game.Players.LocalPlayer:Kick()
 			LOG("players were in server")
-			wait(0.5)
+			wait(1)
 			syn.queue_on_teleport([[
 loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
 LOG2()
@@ -269,7 +269,7 @@ if #game.Players:GetChildren() ~= 1 then
 	if re ~= true then
 		game.Players.LocalPlayer:Kick()
 		LOG("players were in server")
-		wait(0.5)
+		wait(1)
 		syn.queue_on_teleport([[
 loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
 LOG2()
@@ -295,7 +295,7 @@ game.Players.PlayerAdded:Connect(function()
 	if re ~= true then
 		game.Players.LocalPlayer:Kick()
 		LOG("players were in server")
-		wait(0.5)
+		wait(1)
 		syn.queue_on_teleport([[
 loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
 LOG2()
