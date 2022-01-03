@@ -2,7 +2,7 @@ task.wait(2)
 if not game:IsLoaded() then
 	game.IsLoaded:Wait()
 end
-
+task.wait(1.5)
 local name = "Antedx" -- ur name to separate urs from others
 local TimeBankRefresh = 60
 local wordlist =[[
