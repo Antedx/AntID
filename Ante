@@ -212,7 +212,21 @@ if game.Workspace:WaitForChild("doneloading") then
 			end
 		end
 	end)()
-
+	local LP = game.Players.LocalPlayer
+	local HRP = LP.Character:WaitForChild("HumanoidRootPart")
+	local lag = HRP:Clone()
+	local Head = LP.Character:WaitForChild("Head")
+	local tor = LP.Character:WaitForChild("Torso")
+	local pos = tor.Position
+	lag.Parent = LP.Character
+	LP.Character:WaitForChild("Animate"):Destroy()
+	for i,v in pairs(Head:GetChildren())do
+		if v.Name == "Health" then
+			v:Destroy()
+		elseif v.Name == "Streak" then
+			v:Destroy()
+		end
+	end
 	----------------------------------------------------------------------------------
 	coroutine.wrap(Heal)()
 	game.Workspace.ChildAdded:Connect(function(healing)
