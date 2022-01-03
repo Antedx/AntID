@@ -235,7 +235,6 @@ if game.Workspace:WaitForChild("doneloading") then
 	coroutine.wrap(Heal)()
 	game.Workspace.ChildAdded:Connect(function(healing)
 		if healing.Name == "Healing" then
-			task.wait(0.2)
 			coroutine.wrap(Heal)()
 		end
 	end)
