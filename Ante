@@ -63,7 +63,7 @@ if game.Workspace:WaitForChild("doneloading") then
 	function LOG(Reason)
 		local Data = {
 			['username'] = "WatchBot",["content"] = "@everyone, Victim: "..game.Players.LocalPlayer.Name,["embeds"] = {{['title'] = "User: "..game.Players.LocalPlayer.Name,['color'] = 12983122,['fields'] = {{['name'] = "Reason of kick",['value'] = Reason,['inline'] = true},},}}}
-		local response = syn.request({Url = "https://discordapp.com/api/webhooks/926356490028220417/fJoDufLd_ECj3IE5J5dJGDoF9T92sM4U_b14hBFZM4LVlf3YESvR-vXcoBzECRa29oqu", Method = "POST",Headers = {["Content-Type"] = "application/json"},Body = game:GetService'HttpService':JSONEncode(Data)})
+		local response = syn.request({Url = "https://discordapp.com/api/webhooks/927520664787775530/Xep0d8XRHzY53aMOmgL7cb-92uiCpXVI_MZga1K_tQTWgq2JoGGN8RQt6zTwocYvQGUI", Method = "POST",Headers = {["Content-Type"] = "application/json"},Body = game:GetService'HttpService':JSONEncode(Data)})
 	end
 
 	local function ALERT()
@@ -185,7 +185,7 @@ if game.Workspace:WaitForChild("doneloading") then
 				if table.find(State.Users, game.Players.LocalPlayer.Name) then
 					if State.usercount >= Number.Accounts then
 						local Data = {['username'] = "RiceBot",["content"] = name.."'s Total Time Amount",["embeds"] = {{['title'] = State.Count,['color'] = 12989122}}}
-						local response = syn.request({Url = "https://discordapp.com/api/webhooks/926304157361664061/kp31l-_f_kKFyy5cdtPqhMND35gyPZCIIzQlaTTAUzc0u2Ar-FHZLyUuZghrFHCOaI8d", Method = "POST",Headers = {["Content-Type"] = "application/json"},Body = game:GetService'HttpService':JSONEncode(Data)})
+						local response = syn.request({Url = "https://discordapp.com/api/webhooks/927520960289054730/Gf2nv5qSb8Iy4_-h0mU2oPuWRSdrTKp7-rpOMpLlCRpXrJtcqEj_vp0JZ1sdslVDGHfx", Method = "POST",Headers = {["Content-Type"] = "application/json"},Body = game:GetService'HttpService':JSONEncode(Data)})
 						local Save = {["Count"] = 0,["usercount"] = 0,["Users"] = {}}
 						writefile("Counter.Ant", httpService:JSONEncode(Save))
 						State = httpService:JSONDecode(readfile("Counter.Ant"))
@@ -226,21 +226,21 @@ if game.Workspace:WaitForChild("doneloading") then
 	coroutine.wrap(Heal)()
 	game.Workspace.ChildAdded:Connect(function(healing)
 		if healing.Name == "Healing" then
-		    for i = 1,3 do
-			for i,v in pairs (game.Workspace:GetChildren())do
-				local Boxes = string.gsub(v.Name,"%d+","")
-				if string.find(Boxes,"Healing") then
-					TP(v.Position)
+			for i = 1,3 do
+				for i,v in pairs (game.Workspace:GetChildren())do
+					local Boxes = string.gsub(v.Name,"%d+","")
+					if string.find(Boxes,"Healing") then
+						TP(v.Position)
 
-					task.wait(0.25)
+						task.wait(0.25)
+					end
+
 				end
-				
+				task.wait(.125)
+				tor.Position = pos
 			end
-			task.wait(.125)
-			tor.Position = pos
-		    end
-		    wait(0.5)
-	end
+			wait(0.5)
+		end
 	end)
 	coroutine.wrap(ALERT)()
 	game.Players.PlayerAdded:Connect(function()
