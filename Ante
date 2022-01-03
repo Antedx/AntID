@@ -2,7 +2,7 @@ task.wait(2)
 if not game:IsLoaded() then
 	game.IsLoaded:Wait()
 end
-task.wait(2.5)
+task.wait(4)
 game.Players.LocalPlayer:WaitForChild("PlayerGui")
 local name = "Antedx" -- ur name to separate urs from others
 local TimeBankRefresh = 60
