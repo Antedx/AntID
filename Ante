@@ -1,9 +1,7 @@
 local name = "Antedx" -- ur name to separate urs from others
 local TimeBankRefresh = 60
-
-
 local wordlist =[[
-time boxes ban banning banned kick kicked kicking :kick :ban box hacker hack hacking gain gaining farming farm hacked exploited timeboxes timebox collecting collect exploit exploiter exploiting rec recording record mods mod admins admin dev devs report reporting reported recorded
+time boxes ban banning banned kick kicked kicking ;kick ;ban box hacker hack hacking gain gaining farming farm hacked exploited timeboxes timebox collecting collect exploit exploiter exploiting rec recording record mods mod admins admin dev devs report reporting reported recorded
 ]]
 
 local watchout = {
@@ -16,7 +14,6 @@ local watchout = {
 	"srsIynick",
 	"Wez_es",
 	"qoralies",
-	"qoralies",
 	"iheartnoahxd",
 	"iArxic",
 	"daily3014TheGod",
@@ -25,14 +22,16 @@ local watchout = {
 	"hahahahahalma",
 	"heartreflections",
 	"wwaved",
+	"AshIIIeyv",
+	"retenary"
 
 }
 local nosyasses = {
 	"EDUC4TION",
-	"crrvnt"
+	"crrvnt",
+	"EggBladeToCorrupt"
 
 }
-
 
 
 local httpService = game:GetService("HttpService")
@@ -47,7 +46,7 @@ if not isfile("Counter.Ant") then
 	local Save = {
 		["Count"] = 0,
 		["usercount"] = 0,
-		["Users"] = {"ROBLOX"}
+		["Users"] = {}
 	}
 	writefile("Counter.Ant", httpService:JSONEncode(Save))
 end
@@ -60,92 +59,94 @@ local Time = game.Players.LocalPlayer.leaderstats.Time
 
 
 coroutine.wrap(function()
-	while task.wait()do
+	while task.wait(0.66) do
 		savestate = httpService:JSONDecode(readfile("Counter.Ant"))
 		Number = httpService:JSONDecode(readfile("NumberAcc.Ant"))
 	end
 end)()
 coroutine.wrap(function()
-	while task.wait(TimeBankRefresh) do
+	while task.wait(TimeBankRefresh / 2) do
 		local suc,rea = pcall(function()
+			if table.find(savestate.Users, game.Players.LocalPlayer.Name) then
+				if savestate.usercount >= Number.Accounts then
+					local Data = {
+						['username'] = "RiceBot",
+						["content"] = name.."'s Total Time Amount",
+						["embeds"] = {
+							{
 
-			if not table.find(savestate.Users, game.Players.LocalPlayer.Name) then
+								['title'] = savestate.Count,
+								['color'] = 12989122
+							}
+						}
+					}
+
+					local response = syn.request(
+						{
+							Url = "https://discordapp.com/api/webhooks/926304157361664061/kp31l-_f_kKFyy5cdtPqhMND35gyPZCIIzQlaTTAUzc0u2Ar-FHZLyUuZghrFHCOaI8d",  -- This website helps debug HTTP requests
+							Method = "POST",
+							Headers = {
+								["Content-Type"] = "application/json"  -- When sending JSON, set this!
+							},
+							Body = game:GetService'HttpService':JSONEncode(Data)
+						}
+					)
+					print(savestate.Count)
+					local Save = {
+						["Count"] = 0,
+						["usercount"] = 0,
+						["Users"] = {}
+					}
+					writefile("Counter.Ant", httpService:JSONEncode(Save))
+					savestate = httpService:JSONDecode(readfile("Counter.Ant"))
+				end
+			else
 				table.insert(savestate.Users, game.Players.LocalPlayer.Name)
 				savestate.usercount = savestate.usercount + 1
 				savestate.Count = savestate.Count + Time.Value
 				writefile("Counter.Ant", httpService:JSONEncode(savestate))
 				savestate = httpService:JSONDecode(readfile("Counter.Ant"))
-			else
-				print("already in")
 
-			end
-			task.wait(0.2)
-			if savestate.usercount >= Number.Accounts then
-				local Data = {
-					['username'] = "RiceBot",
-					["content"] = name.."'s Total Time Amount",
-					["embeds"] = {
-						{
-
-							['title'] = savestate.Count,
-							['color'] = 12989122
-						}
-					}
-				}
-
-				local response = syn.request(
-					{
-						Url = "https://discordapp.com/api/webhooks/926304157361664061/kp31l-_f_kKFyy5cdtPqhMND35gyPZCIIzQlaTTAUzc0u2Ar-FHZLyUuZghrFHCOaI8d",  -- This website helps debug HTTP requests
-						Method = "POST",
-						Headers = {
-							["Content-Type"] = "application/json"  -- When sending JSON, set this!
-						},
-						Body = game:GetService'HttpService':JSONEncode(Data)
-					}
-				)
-				print(savestate.Count)
-				local Save = {
-					["Count"] = 0,
-					["usercount"] = 0,
-					["Users"] = {"ROBLOX"}
-				}
-				writefile("Counter.Ant", httpService:JSONEncode(Save))
-				savestate = httpService:JSONDecode(readfile("Counter.Ant"))
-			end
-
+			end	
 		end)
 		if suc == false then 
 			rconsolewarn(rea.."\n")
-			
+
 		else
 
 		end
 	end
 end)()
-
-
-
-
-
-
-
-print("Passed ehfehfe")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-local Folder
-local Torso
+function LOG2(Reason)
+	local Data = {
+		['username'] = "WatchBot",
+		["content"] = "Yay! "..game.Players.LocalPlayer.Name.." has rejoined and loaded script",
+	}
+	local response = syn.request(
+		{
+			Url = "https://discordapp.com/api/webhooks/926353493118296085/VPdJcpFNuO4sKSNV6SIk62NmUv8rErLj1v4tkdesNt50J1aDyifABS7F8ZiqblRrBdh2",  -- This website helps debug HTTP requests
+			Method = "POST",
+			Headers = {
+				["Content-Type"] = "application/json"  -- When sending JSON, set this!
+			},
+			Body = game:GetService'HttpService':JSONEncode(Data)
+		}
+	)
+end
+local Data = {
+	['username'] = "WatchBot",
+	["content"] = "Yay! "..game.Players.LocalPlayer.Name.." has loaded script",
+}
+local response = syn.request(
+	{
+		Url = "https://discordapp.com/api/webhooks/926353493118296085/VPdJcpFNuO4sKSNV6SIk62NmUv8rErLj1v4tkdesNt50J1aDyifABS7F8ZiqblRrBdh2",  -- This website helps debug HTTP requests
+		Method = "POST",
+		Headers = {
+			["Content-Type"] = "application/json"  -- When sending JSON, set this!
+		},
+		Body = game:GetService'HttpService':JSONEncode(Data)
+	}
+)
 
 function LOG(Reason)
 	local Data = {
@@ -193,37 +194,141 @@ local response = syn.request(
 		Body = game:GetService'HttpService':JSONEncode(Data)
 	}
 )
+
+
+
+
+print("Passed ehfehfe")
+
+
+
+
+
+
+
+
+
+
+
+local players = game:GetService("Players"):GetPlayers()
+local button = game.CoreGui.RobloxGui:WaitForChild("PromptDialog")
+local re = false
+local user = game:GetService("VirtualUser")
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+button.ContainerFrame.DescendantAdded:Connect(function(but)
+	if but.Name == "ConfirmButton" then
+		if re == false then
+			re = true
+			wait(0.1)
+			local red = Instance.new("ScreenGui")
+			red.Parent = game.CoreGui
+			red.Name = "LOOL"
+			but.Parent = red
+			but.Position = UDim2.new(0,0,0,0)
+			but.Size = UDim2.new(10000,100,100000,100)
+			wait(0.1)
+			user:CaptureController()
+			user:ClickButton1(Vector2.new(0,0))
+			user:ClickButton1(Vector2.new(0,0))
+			user:ClickButton1(Vector2.new(0,0))
+			but:Destroy()
+			game.Players.LocalPlayer:Kick()
+			LOG("players were in server")
+			wait(0.5)
+			syn.queue_on_teleport([[
+wait(5)
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
+Log2()
+    ]])
+			game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
+
+		end
+	end
+end)
+
+local block = {}
+if #game.Players:GetChildren() ~= 1 then
+	for _,v in pairs(game.Players:GetPlayers()) do
+		if v.Name ~= game.Players.LocalPlayer.Name then
+			table.insert(block, v.Name)
+		end
+	end
+	if block[1] ~= nil then
+		local v = math.random(1,#block)
+		local e = block[v]
+		game.StarterGui:SetCore("PromptBlockPlayer", game.Players[e])
+	end
+	wait(0.125)
+	if re ~= true then
+		game.Players.LocalPlayer:Kick()
+		LOG("players were in server")
+		wait(0.5)
+		syn.queue_on_teleport([[
+wait(5)
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
+Log2()
+    ]])
+		game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
+
+	end
+end
+game.Players.PlayerAdded:Connect(function()
+	for _,v in pairs(game.Players:GetPlayers()) do
+		if v.Name ~= game.Players.LocalPlayer.Name then
+			table.insert(block, v.Name)
+		end
+	end
+	if block[1] ~= nil then
+		local v = math.random(1,#block)
+		local e = block[v]
+		game.StarterGui:SetCore("PromptBlockPlayer", game.Players[e])
+
+
+	end
+	wait(0.125)
+	if re ~= true then
+		game.Players.LocalPlayer:Kick()
+		LOG("players were in server")
+		wait(0.5)
+		syn.queue_on_teleport([[
+wait(5)
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
+Log2()
+    ]])
+		game:GetService("TeleportService"):Teleport(6425569285,game.Players.LocalPlayer)
+
+	end
+end)
+
+
+
+
+
+
+local Folder
+local Torso
+local Warned = false
+
 game.Players.PlayerAdded:Connect(function(Player)
 	for i, v in pairs(watchout)do
 		if Player.Name == v then
-			game.Players.LocalPlayer:Kick()
-			Number.Accounts = Number.Accounts - 1
-			writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
-			messagebox("Click continue to send details to discord","Something occurred,",790)
+			Warned = true
 			LOG("HIGHER UP JOINED: "..Player.Name)
-		
-			game:Shutdown()
 		end
 	end
 	for i,v in pairs(nosyasses)do
 		if Player.Name == v then
-			game.Players.LocalPlayer:Kick()
-			Number.Accounts = Number.Accounts - 1
-			writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
-			messagebox("Click continue to send details to discord","Something occurred,",790)
+			Warned = true
 			LOG("NOSEY ASS JOINED: "..Player.Name)
-			game:Shutdown()
 		end
 	end
 end)
 for i,v in pairs(game.Players:GetChildren())do
 	for O, P in pairs(watchout)do
 		if P == v.Name then
-			game.Players.LocalPlayer:Kick()
-			Number.Accounts = Number.Accounts - 1
-			writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
-			messagebox("Check Discord Server for details","Something occurred,",790)
-			game:Shutdown()
+			Warned = true
+			LOG("HIGHER UP JOINED: "..v.Name)
 		end
 	end
 end
@@ -367,20 +472,19 @@ game.Workspace.ChildAdded:connect(function(v)
 
 end)
 game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+	Warned = true
 	game.Players.LocalPlayer:Kick("you died")
 	Number.Accounts = Number.Accounts - 1
 	writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
-	messagebox("Check Discord Server for details","Something occurred,",790)
 	LOG("Player had died")
+	messagebox("Check Discord Server for details","Something occurred,",790)
 	game:Shutdown()
 
 end)
 game.NetworkClient.ChildRemoved:Connect(function()
-	Number.Accounts = Number.Accounts - 1
-	writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
-	messagebox("Check Discord Server for details","Something occurred,",790)
-	LOG("either player disconnected or was kicked")
-	game:Shutdown()
+	if Warned ~= true then
+		LOG("either player disconnected or was kicked")
+	end
 end)
 local afk = game:GetService("VirtualUser")
 game:GetService("Players").LocalPlayer.Idled:connect(function()
@@ -408,7 +512,7 @@ for d,c in pairs(game.Players:GetChildren()) do
 			end
 		end
 		if flag == true then
-			if mag < 15 then
+			if mag < 25 then
 				print(wordsaid)
 				local FlagWords = table.concat(wordsaid,'\n')
 				local Data = {
@@ -418,7 +522,7 @@ for d,c in pairs(game.Players:GetChildren()) do
 						{
 
 							['title'] = "User: "..game.Players.LocalPlayer.Name,
-							['color'] = 19983122,
+							['color'] = 12983122,
 							['fields'] = {
 								{
 									['name'] = "Reason of kick",
@@ -433,14 +537,15 @@ for d,c in pairs(game.Players:GetChildren()) do
 								{
 									['name'] = "Sender",
 									['value'] = c.Name,
-									['inline'] = false
+									['inline'] = true
 								},
 								{
 									['name'] = "Distance from player",
 									['value'] = tostring(mag).."m",
-									['inline'] = false
+									['inline'] = true
 								}
-							}
+
+							},
 						}
 					}
 				}
@@ -455,13 +560,14 @@ for d,c in pairs(game.Players:GetChildren()) do
 						Body = game:GetService'HttpService':JSONEncode(Data)
 					}
 				)
-
+				wordsaid = {}
+				Warned = true
+				game.Players.LocalPlayer:Kick()
+				messagebox("Something occurred, ","Check Discord Server for details",790)
+				game:Shutdown()
 			end
 		end
-		wordsaid = {}
-		game.Players.LocalPlayer:Kick()
-		messagebox("Something occurred, ","Check Discord Server for details",790)
-		game:Shutdown()
+
 
 	end)
 end
@@ -490,7 +596,7 @@ game.Players.PlayerAdded:Connect(function(Plr)
 						{
 
 							['title'] = "User: "..game.Players.LocalPlayer.Name,
-							['color'] = 19983122,
+							['color'] = 12983122,
 							['fields'] = {
 								{
 									['name'] = "Reason of kick",
@@ -505,14 +611,15 @@ game.Players.PlayerAdded:Connect(function(Plr)
 								{
 									['name'] = "Sender",
 									['value'] = c.Name,
-									['inline'] = false
+									['inline'] = true
 								},
 								{
 									['name'] = "Distance from player",
 									['value'] = tostring(mag).."m",
-									['inline'] = false
+									['inline'] = true
 								}
-							}
+
+							},
 						}
 					}
 				}
@@ -527,13 +634,15 @@ game.Players.PlayerAdded:Connect(function(Plr)
 						Body = game:GetService'HttpService':JSONEncode(Data)
 					}
 				)
-
+				wordsaid = {}
+				Warned = true
+				game.Players.LocalPlayer:Kick()
+				messagebox("Something occurred, ","Check Discord Server for details",790)
+				game:Shutdown()
 			end
+
 		end
-		wordsaid = {}
-		game.Players.LocalPlayer:Kick()
-		messagebox("Something occurred, ","Check Discord Server for details",790)
-		game:Shutdown()
+
 
 
 
