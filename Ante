@@ -235,6 +235,8 @@ if game.Workspace:WaitForChild("doneloading") then
 					game.Players.LocalPlayer:Kick()
 					LOG("players were in server. Player blocked: "..e)
 					task.wait(1.5)
+					Number.Accounts = Number.Accounts - 1
+					writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
 					syn.queue_on_teleport([[
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
     	]])
@@ -261,6 +263,8 @@ if game.Workspace:WaitForChild("doneloading") then
 			if re ~= true then
 				game.Players.LocalPlayer:Kick()
 				LOG("players were in server. Player blocked: "..e)
+				Number.Accounts = Number.Accounts - 1
+				writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
 				task.wait(1.5)
 				syn.queue_on_teleport([[
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
@@ -286,6 +290,8 @@ if game.Workspace:WaitForChild("doneloading") then
 			if re ~= true then
 				game.Players.LocalPlayer:Kick()
 				LOG("players were in server. Player blocked: "..e)
+				Number.Accounts = Number.Accounts - 1
+				writefile("NumberAcc.Ant", httpService:JSONEncode(Number))
 				task.wait(1.5)
 				syn.queue_on_teleport([[
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/Antedx/AntID/main/Ante'))()
