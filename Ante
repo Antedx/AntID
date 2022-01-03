@@ -226,6 +226,7 @@ if game.Workspace:WaitForChild("doneloading") then
 	coroutine.wrap(Heal)()
 	game.Workspace.ChildAdded:Connect(function(healing)
 		if healing.Name == "Healing" then
+		    for i = 1,3 do
 			for i,v in pairs (game.Workspace:GetChildren())do
 				local Boxes = string.gsub(v.Name,"%d+","")
 				if string.find(Boxes,"Healing") then
@@ -237,7 +238,9 @@ if game.Workspace:WaitForChild("doneloading") then
 			end
 			task.wait(.125)
 			tor.Position = pos
-		end
+		    end
+		    wait(0.5)
+	end
 	end)
 	coroutine.wrap(ALERT)()
 	game.Players.PlayerAdded:Connect(function()
