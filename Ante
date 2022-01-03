@@ -7,7 +7,13 @@ loading.ChildRemoved:Connect(function()
 	done.Name = "doneloading"
 	done.Parent = game.Workspace
 end)
-game.Workspace:WaitForChild("doneloading")
+if #loading:GetChildren() == 0 then
+    	local done = Instance.new("Model")
+	done.Name = "doneloading"
+	done.Parent = game.Workspace
+end
+
+if game.Workspace:WaitForChild("doneloading") then
 print("loaded")
 task.wait(2.5)
 local name = "Antedx" -- ur name to separate urs from others
@@ -631,4 +637,5 @@ game.Players.PlayerAdded:Connect(function(Plr)
 
 end)
 	game.Workspace.MainArena.Ice.TouchInterest:Destroy()
-	end
+end
+end
