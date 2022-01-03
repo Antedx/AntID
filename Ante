@@ -122,22 +122,6 @@ coroutine.wrap(function()
 		end
 	end
 end)()
-function LOG2(Reason)
-	local Data = {
-		['username'] = "WatchBot",
-		["content"] = "Yay! "..game.Players.LocalPlayer.Name.." has rejoined and loaded script",
-	}
-	local response = syn.request(
-		{
-			Url = "https://discordapp.com/api/webhooks/926353493118296085/VPdJcpFNuO4sKSNV6SIk62NmUv8rErLj1v4tkdesNt50J1aDyifABS7F8ZiqblRrBdh2",  -- This website helps debug HTTP requests
-			Method = "POST",
-			Headers = {
-				["Content-Type"] = "application/json"  -- When sending JSON, set this!
-			},
-			Body = game:GetService'HttpService':JSONEncode(Data)
-		}
-	)
-end
 local Data = {
 	['username'] = "WatchBot",
 	["content"] = "Yay! "..game.Players.LocalPlayer.Name.." has loaded script",
@@ -185,22 +169,6 @@ function LOG(Reason)
 		}
 	)
 end
-local Data = {
-	['username'] = "WatchBot",
-	["content"] = "Yay! "..game.Players.LocalPlayer.Name.." has loaded script",
-}
-local response = syn.request(
-	{
-		Url = "https://discordapp.com/api/webhooks/926353493118296085/VPdJcpFNuO4sKSNV6SIk62NmUv8rErLj1v4tkdesNt50J1aDyifABS7F8ZiqblRrBdh2",  -- This website helps debug HTTP requests
-		Method = "POST",
-		Headers = {
-			["Content-Type"] = "application/json"  -- When sending JSON, set this!
-		},
-		Body = game:GetService'HttpService':JSONEncode(Data)
-	}
-)
-
-
 
 
 print("Passed ehfehfe")
