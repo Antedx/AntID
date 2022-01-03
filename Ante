@@ -58,12 +58,7 @@ if game.Workspace:WaitForChild("doneloading") then
 	end
 	local function Heal()
 		task.wait(0.5)
-		for i,v in next, game.Workspace:GetChildren()do
-				local Boxes = string.gsub(v.Name,"%d+","")
-				if string.find(Boxes,"Healing") then
-					TP(v.Position)
-				end
-		end
+
 	end
 	function LOG(Reason)
 		local Data = {
@@ -231,7 +226,13 @@ if game.Workspace:WaitForChild("doneloading") then
 	coroutine.wrap(Heal)()
 	game.Workspace.ChildAdded:Connect(function(healing)
 		if healing.Name == "Healing" then
-			Heal()
+			wait(1)
+			for i,v in next, game.Workspace:GetChildren()do
+				local Boxes = string.gsub(v.Name,"%d+","")
+				if string.find(Boxes,"Healing") then
+					TP(v.Position)
+				end
+			end
 		end
 	end)
 	coroutine.wrap(ALERT)()
