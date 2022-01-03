@@ -59,14 +59,10 @@ if game.Workspace:WaitForChild("doneloading") then
 	local function Heal()
 		task.wait(0.5)
 		for i,v in next, game.Workspace:GetChildren()do
-			if v then
 				local Boxes = string.gsub(v.Name,"%d+","")
 				if string.find(Boxes,"Healing") then
 					TP(v.Position)
 				end
-			else
-				rconsolewarn("wrror")
-			end
 		end
 	end
 	function LOG(Reason)
@@ -235,12 +231,12 @@ if game.Workspace:WaitForChild("doneloading") then
 	coroutine.wrap(Heal)()
 	game.Workspace.ChildAdded:Connect(function(healing)
 		if healing.Name == "Healing" then
-			coroutine.wrap(Heal)()
+			Heal()
 		end
 	end)
 	coroutine.wrap(ALERT)()
 	game.Players.PlayerAdded:Connect(function()
-		coroutine.wrap(ALERT)()
+		Alert()
 	end)
 
 end
